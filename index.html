@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Anany Kulshrestha · corporate law & governance</title>
+    <!-- Font Awesome 5 (free) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <!-- Google Fonts: inter + playfair display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate on Scroll (AOS) library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            opacity: 0;
+            animation: fadeInBody 0.7s ease-out forwards;
+        }
+
+        @keyframes fadeInBody {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* headings */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.75rem;
+            border-bottom: 3px solid #cbd5e1;
+            padding-bottom: 0.4rem;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #0f2b4b;
+        }
+
+        .section-subhead {
+            font-weight: 500;
+            color: #475569;
+            font-size: 1.1rem;
+            margin-top: -0.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* layout */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.2s;
+            border: 1px solid #e9eef2;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 35px -12px rgba(0,30,60,0.2);
+            border-color: #bdd3eb;
+        }
+
+        .grid-2, .grid-3 {
+            display: grid;
+            gap: 1.8rem;
+        }
+
+        .grid-2 { grid-template-columns: repeat(2,1fr); }
+        .grid-3 { grid-template-columns: repeat(3,1fr); }
+
+        /* header / nav */
+        .navbar {
+            background-color: #ffffffdd;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: background 0.2s;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0b2b42;
+            line-height: 1.2;
+        }
+
+        .logo small {
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #4b5563;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: color 0.1s, transform 0.2s;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+            transform: scale(1.05) translateY(-1px);
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #ffffff 0%, #f1f6fa 100%);
+            border-radius: 2rem;
+            padding: 2.5rem 2.5rem;
+            margin-top: 1rem;
+            border: 1px solid #dee7ef;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin: 0.5rem 0 1.2rem 0;
+            font-weight: 400;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .badge {
+            background: #1e3a5f;
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: all 0.2s;
+        }
+
+        .badge-light {
+            background: #e9edf2;
+            color: #1e293b;
+        }
+
+        .badge:hover {
+            filter: brightness(1.05);
+            transform: scale(1.03) translateY(-1px);
+            box-shadow: 0 5px 10px -3px rgba(0,30,60,0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1e3a5f;
+            color: white;
+            font-weight: 500;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -2px rgba(0,30,60,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #1e3a5f;
+            color: #1e3a5f;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: #1e3a5f;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .btn:hover {
+            background: #143049;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 20px -8px rgba(0,30,60,0.4);
+        }
+
+        /* lists & icons */
+        .icon-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .icon-list li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            transition: transform 0.15s;
+        }
+
+        .icon-list li:hover {
+            transform: translateX(4px);
+        }
+
+        .icon-list i {
+            color: #2563eb;
+            width: 1.4rem;
+            margin-top: 0.2rem;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .icon-list li:hover i {
+            transform: scale(1.1);
+            color: #1e3a5f;
+        }
+
+        .org-name {
+            font-weight: 600;
+            color: #0b2b42;
+        }
+
+        .date-tag {
+            font-size: 0.85rem;
+            background: #e9edf2;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-left: 0.5rem;
+            font-weight: 500;
+        }
+
+        hr.divider {
+            margin: 2rem 0;
+            border: 0;
+            border-top: 2px dashed #cbd5e1;
+        }
+
+        /* awards / achievements grid */
+        .award-item {
+            background: #f0f4f9;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.4rem;
+            font-weight: 500;
+            transition: all 0.25s;
+            cursor: default;
+        }
+
+        .award-item:hover {
+            background: #e2eaf3;
+            transform: scale(1.02) translateY(-4px);
+            box-shadow: 0 12px 20px -10px #1e3a5f4d;
+        }
+
+        .prize-badge {
+            background: #fbbf24;
+            color: #0f172a;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* profile image */
+        .profile-image-wrapper {
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 18px 30px -12px #1e3a5f4d;
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1), box-shadow 0.3s;
+        }
+
+        .profile-image-wrapper:hover {
+            transform: scale(1.02) rotate(0.5deg);
+            box-shadow: 0 25px 35px -12px #1e3a5f;
+        }
+
+        .profile-image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 2rem;
+            object-fit: cover;
+            aspect-ratio: 1/1.1;
+        }
+
+        /* footer */
+        .footer {
+            text-align: center;
+            color: #64748b;
+            border-top: 1px solid #d4dfe9;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive fine-tuning */
+        @media (max-width: 900px) {
+            .grid-3 { grid-template-columns: repeat(2,1fr); }
+        }
+
+        @media (max-width: 700px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; gap: 0.5rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .hero { padding: 1.8rem 1.5rem; }
+            .btn { padding: 0.6rem 1.4rem; }
+            .profile-image-wrapper { max-width: 260px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 1rem; }
+            .nav-links a { font-size: 0.9rem; }
+            .badge-container { flex-direction: column; align-items: flex-start; }
+            .grid-3 { grid-template-columns: 1fr; }
+        }
+
+        /* anchor offset for sticky header */
+        :target {
+            scroll-margin-top: 80px;
+        }
+    </style>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- navigation -->
+    <div class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                Anany Kulshrestha
+                <small>BBA LL.B. (hons.) · CS executive</small>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#academics">Academics</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Connect</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- hero section (no AOS for instant appearance) -->
+        <div class="hero" id="about" data-aos="fade-up" data-aos-duration="700">
+            <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; justify-content: space-between;">
+                <!-- left text -->
+                <div style="flex: 2; min-width: 280px;" data-aos="fade-right" data-aos-delay="100">
+                    <h1>Anany Kulshrestha</h1>
+                    <div class="hero-tagline">final‑year law student · corporate & insolvency enthusiast · Company Secretary (ICSI)</div>
+                    <p style="margin: 1.2rem 0 0.8rem; font-size: 1.1rem;">Driven by the strategic intersection of law and business – experienced in litigation support, ADR, regulatory compliance and legal tech.</p>
+                    <div class="badge-container">
+                        <span class="badge">🏛️ BBA LL.B. '26</span>
+                        <span class="badge badge-light">⚖️ CS executive</span>
+                        <span class="badge badge-light">📁 Insolvency & IBC</span>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn">📬 contact</a>
+                        <a href="#experience" class="btn btn-outline" style="margin-left: 1rem;">📋 internships</a>
+                    </div>
+                </div>
+                <!-- right image -->
+                <div style="flex: 1; min-width: 240px; display: flex; justify-content: center;" data-aos="fade-left" data-aos-delay="200">
+                    <div class="profile-image-wrapper">
+                        <!-- REPLACE with your actual image path -->
+                        <img src="profile.jpeg" alt="Anany Kulshrestha">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- academic overview + certs -->
+        <div style="margin: 2.5rem 0;" id="academics">
+            <h2 data-aos="fade-right">📚 Academic Foundation</h2>
+            <div class="grid-2">
+                <div class="card" data-aos="zoom-in-up" data-aos-delay="50">
+                    <h3>BBA LL.B. (corporate law)</h3>
+                    <span class="section-subhead">Chandigarh University · CGPA 7.10 · exp. 2026</span>
+                    <p>Class XII – Venus Public School (67%) · Class X – Mother Teresa Sr. Sec. (66%)<br>Core focus: corporate regulation, insolvency, litigation strategy, AI governance.</p>
+                </div>
+                <div class="card" data-aos="zoom-in-up" data-aos-delay="150">
+                    <h3>Company Secretary (ICSI)</h3>
+                    <span class="section-subhead">Executive Programme · Institute of Company Secretaries of India</span>
+                    <p>Developing expertise in corporate compliance, securities regulation, banking law, and governance frameworks – dual perspective on law & business.</p>
+                </div>
+            </div>
+            <div style="margin-top: 1.8rem; background: #eef2f6; border-radius: 2rem; padding: 1.6rem;" data-aos="flip-up" data-aos-delay="100">
+                <h3 style="font-family: Inter; font-weight: 600; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;"><i class="fas fa-certificate" style="color:#1e3a5f;"></i> selected certifications & courses</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                    <span class="badge badge-light" style="background: white;">⚖️ NLUJ–IBBI Insolvency (85.71%)</span>
+                    <span class="badge badge-light" style="background: white;">🤖 Tech regulation: telegraphs to AI</span>
+                    <span class="badge badge-light" style="background: white;">🌍 Intl Humanitarian Law</span>
+                    <span class="badge badge-light" style="background: white;">📡 IBC conf. participant</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <h2 id="experience" data-aos="fade-right">⚡ professional exposure</h2>
+        <div class="grid-2" style="margin-bottom: 2rem;">
+            <!-- each card with AOS fade-up -->
+            <div class="card" data-aos="fade-up" data-aos-delay="0"><h3><i class="fas fa-broadcast-tower" style="color: #0056b3;"></i> Bharti Hexacom (Airtel) · legal intern</h3><span class="section-subhead">in‑house counsel team | research, drafting, telecom</span><ul class="icon-list"><li><i class="fas fa-file-alt"></i> Research on Stamp Act, MSME, Telecommunication Act, ID Act; 15+ case briefs (labour/consumer)</li><li><i class="fas fa-gavel"></i> Assisted before High Court, Consumer Courts, TRAI, DoT; drafted replies & translations</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="50"><h3><i class="fas fa-handshake" style="color: #2b6e4f;"></i> SAMA · Case Manager (ADR)</h3><span class="section-subhead">Lok Adalat & mediation cell</span><ul class="icon-list"><li><i class="fas fa-balance-scale"></i> Managed 200+ ADR cases, coordinated mediators & parties</li><li><i class="fas fa-comments"></i> Counselled clients on Lok Adalat; supervised 20+ joint mediation meetings</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100"><h3><i class="fas fa-robot" style="color: #2563eb;"></i> LegalEaze.ai · legal tech intern</h3><span class="section-subhead">AI legal platform (BITS Pilani)</span><ul class="icon-list"><li><i class="fas fa-file-signature"></i> Reviewed & drafted AI‑generated notices/contracts</li><li><i class="fas fa-search"></i> Analysed 15+ legal topics, validated with manual research</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150"><h3><i class="fas fa-building" style="color: #7b3f00;"></i> Kasliwal Chambers (Jaipur)</h3><span class="section-subhead">arbitration · property · SARFAESI</span><ul class="icon-list"><li><i class="fas fa-folder-open"></i> Briefs on SARFAESI & arbitration; coordinated High Court filings</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200"><h3><i class="fas fa-gavel" style="color: #1e1e1e;"></i> SVS Attorneys, New Delhi</h3><span class="section-subhead">Supreme Court litigation</span><ul class="icon-list"><li><i class="fas fa-file-pdf"></i> Drafted SLP; research on constitutional law, PMLA, white collar crime, property law</li><li><i class="fas fa-keyboard"></i> Dictation & translation assignments</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="250"><h3><i class="fas fa-folder"></i> Karnail Singh & Company</h3><span class="section-subhead">pleadings, briefs, criminal & family law</span><ul class="icon-list"><li><i class="fas fa-edit"></i> Drafted pleadings & filings; detailed briefs to support litigation strategy</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300"><h3><i class="fas fa-gavel" style="color: #8b5a2b;"></i> Adv. Ajit Singh · Jaipur District Court</h3><span class="section-subhead">NI Act, drafting, hearings</span><ul class="icon-list"><li><i class="fas fa-file-invoice"></i> Research on Negotiable Instruments Act, drafted pleadings, assisted in court</li></ul></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="350"><h3><i class="fas fa-shield-alt"></i> Surana Law Chambers</h3><span class="section-subhead">POCSO · criminal · High Court pleadings</span><ul class="icon-list"><li><i class="fas fa-balance-scale"></i> Prepared briefs on POCSO, criminal law; drafted HC pleadings</li></ul></div>
+        </div>
+
+        <!-- leadership -->
+        <div class="card" style="background: #e7edf5; margin-bottom: 2rem;" data-aos="flip-left" data-aos-duration="600">
+            <h3 style="display: flex; gap: 0.5rem;"><i class="fas fa-users" style="color: #1e3a5f;"></i> leadership & professional engagement</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div><i class="fas fa-pen-fancy"></i> <strong>Lawctopus Campus Leader</strong> – authored articles, interviewed professionals</div>
+                <div><i class="fas fa-globe"></i> <strong>YIAMC Hyderabad</strong> – member, arbitration & mediation circle</div>
+                <div><i class="fas fa-gavel"></i> <strong>Court Master</strong> – 2nd Intra Moot Court, CU</div>
+                <div><i class="fas fa-university"></i> Organising committee: CUMUN, National Seminar on Modern Arbitration</div>
+            </div>
+        </div>
+
+        <!-- awards -->
+        <h2 id="achievements" data-aos="fade-right">🏆 awards & distinctions</h2>
+        <div class="grid-3" style="margin-bottom: 2rem;">
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="0"><span class="prize-badge">🏅 Top Performer</span> Excellence Award – Career Management Cell</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="50"><span class="prize-badge">🥇 1st prize</span> Intra‑Dept Moot Court</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="100"><span class="prize-badge">📖 Best Researcher</span> same moot competition</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="150"><span class="prize-badge">🥇 1st prize</span> Inter‑Dept Legal Quiz</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="200"><span class="prize-badge">🥈 2nd prize</span> Constitutional Law Quiz</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="250"><span class="prize-badge">🥉 3rd prize</span> Environmental Law Quiz</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="300"><span class="prize-badge">🥈 2nd prize</span> Current Affairs Quiz</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="350"><span class="prize-badge">🌐 MUN</span> Ecuador delegate – Munity International MUN</div>
+            <div class="award-item" data-aos="zoom-in" data-aos-delay="400"><span class="prize-badge">⚖️ NMIMS · Sankhla</span> national moot participations</div>
+        </div>
+
+        <!-- contact / summary (removed 'get in touch' button, added resume drive link) -->
+        <div style="background: white; border-radius: 2rem; padding: 2rem; border: 1px solid #cddae6;" id="contact" data-aos="fade-up" data-aos-offset="100">
+            <h2>📌 professional summary & goals</h2>
+            <p style="font-size: 1.15rem; max-width: 900px;">My academic and hands‑on experience across corporate advisory, litigation, ADR, and regulatory compliance have shaped a robust foundation in corporate law, insolvency, and governance. I aim to contribute as an in‑house counsel or corporate legal professional, focusing on insolvency resolution, corporate governance, and regulatory strategy.</p>
+            <hr class="divider">
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;">
+                <div>
+                    <span style="font-weight: 600;"><i class="fas fa-envelope"></i> anany2003@gmail.com</span> <br>
+                    <span><i class="fas fa-phone-alt"></i> +91-94072-70301</span><br>
+                    <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ananykulshrestha/">Linkdin</a> </span>
+                    <!-- <span><a href="https://www.linkedin.com/in/ananykulshrestha/" target="_blank" class="btn" style="margin-right: 0.5rem;"><i class="fas fa-download"></i> resume (drive)</a></span> -->
+                </div>
+                <div>
+                    <!-- Resume drive link button (updated) + removed "get in touch" -->
+                    <a href="https://drive.google.com/file/d/1t5tofjXNHg9_estaAlHZqS35mYBbuFlR/view?usp=sharing" target="_blank" class="btn" style="margin-right: 0.5rem;"><i class="fas fa-download"></i> resume (drive)</a>
+                    <!-- "get in touch" button removed as requested -->
+                </div>
+            </div>
+            <div style="margin-top: 1.5rem; background: #f0f5fa; border-radius: 3rem; padding: 0.7rem 1.5rem; font-size:0.95rem;" data-aos="fade-in">
+                <i class="fas fa-certificate"></i> dual pathway: BBA LL.B. 2026 · CS executive · member YIAMC · certified in insolvency & tech regulation
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 Anany Kulshrestha – crafted from professional profile. All credentials asserted.
+        </div>
+    </main>
+
+    <!-- AOS initialization script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-quad',
+            once: false,          // animate every time you scroll
+            mirror: true,
+            offset: 20
+        });
+    </script>
+</body>
+</html>
